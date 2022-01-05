@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bdc6398b-d720-4e2d-98bd-de0661a7c96b', url: 'https://github.com/JSakhamuri/PythonDockerRepo.git']]])     
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bdc6398b-d720-4e2d-98bd-de0661a7c96b', url: 'https://github.com/JSakhamuri/PythonDockerRepo.git']]])     
             }
         }
   
