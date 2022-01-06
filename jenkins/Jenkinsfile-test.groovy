@@ -28,7 +28,14 @@ pipeline {
          }
         }
       }
-   
+   // Get the scan results
+    stage('Get Scan Results') {
+     steps{  
+         script {
+                'aws ecr describe-image-scan-findings --repository-name docker-image-repo --image-id imageTag=latest --region us-east-2'
+         }
+        }
+      }
   
     }
 }
