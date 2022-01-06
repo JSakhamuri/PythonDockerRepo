@@ -19,7 +19,15 @@ pipeline {
         }
       }
     }
-  // Uploading Docker images into AWS ECR
+    // Create ECR Repository
+    stage('Create Repository') {
+      steps{
+        script {
+          'aws ecr create-repository --repository-name docker-image-repo --image-scanning-configuration scanOnPush=true'
+        }
+      }
+    }
+    // Uploading Docker images into AWS ECR
     stage('Pushing to ECR') {
      steps{  
          script {
