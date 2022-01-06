@@ -11,19 +11,19 @@ pipeline {
             }
         }
   
-    // Building Docker images
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry
-        }
-      }
-    }
     // Create ECR Repository
     stage('Create Repository') {
       steps{
         script {
           'aws ecr create-repository --repository-name docker-image-repo --image-scanning-configuration scanOnPush=true'
+        }
+      }
+    }
+    // Building Docker images
+    stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry
         }
       }
     }
